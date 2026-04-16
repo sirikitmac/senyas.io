@@ -17,9 +17,10 @@ export default function SenyasIO() {
   const [voiceEnabled, setVoiceEnabled] = useState(false);
   const [isDetecting, setIsDetecting] = useState(false);
 
+  // Added string type to word
   const speakWord = (word: string) => {
     setDetectedWord(word);
-    if (voiceEnabled) {
+    if (voiceEnabled && typeof window !== 'undefined') {
       const speech = new SpeechSynthesisUtterance(word);
       speech.rate = 0.9; 
       window.speechSynthesis.speak(speech);
@@ -64,7 +65,7 @@ export default function SenyasIO() {
               </CardHeader>
               <CardContent className="p-10 flex flex-col items-center gap-10">
                 
-                {/* HAND TRACKER COMPONENT - No more old video tags! */}
+                {/* HAND TRACKER COMPONENT */}
                 <HandTracker setDetectedWord={setDetectedWord} />
 
                 <div className={`w-full flex flex-col items-center py-8 rounded-[32px] border ${isDarkMode ? 'bg-black/40 border-white/5' : 'bg-neutral-100 border-neutral-200'}`}>
@@ -72,7 +73,11 @@ export default function SenyasIO() {
                 </div>
                 
                 <Button 
-                  onClick={() => { setIsDetecting(true); speakWord("Help Needed"); setTimeout(() => setIsDetecting(false), 2000); }} 
+                  onClick={() => { 
+                    setIsDetecting(true); 
+                    speakWord("Help Needed"); 
+                    setTimeout(() => setIsDetecting(false), 2000); 
+                  }} 
                   className="w-full max-w-md h-16 rounded-full text-lg font-bold bg-purple-600 hover:bg-purple-500 text-white shadow-purple-900/20 shadow-2xl transition-transform active:scale-95"
                 >
                   Test Assistance

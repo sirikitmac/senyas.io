@@ -7,23 +7,23 @@ import { FlowerDrop } from "./FlowerDrop";
 
 export default function HeroSectionOne() {
   return (
-    <div className="flex flex-col items-center justify-center px-6 w-full max-w-4xl min-h-screen">
+    <div className="flex flex-col items-center justify-center px-6 w-full max-w-4xl pt-32 pb-16">
       
-      {/* Navbar */}
-      <nav className="fixed top-0 flex w-full max-w-7xl items-center justify-between py-8 px-6 z-40">
+      {/* Navbar - Fixed top, so it floats over content */}
+      <nav className="fixed top-0 flex w-full max-w-7xl items-center justify-between py-8 px-6 z-40 bg-background/50 backdrop-blur-md">
         <h1 className="text-xl font-bold tracking-tight text-foreground">Senyas.IO</h1>
         <ThemeToggle />
       </nav>
 
-      {/* Hero Content */}
-      <div className="flex flex-col items-center text-center mt-20">
+      {/* Hero Content - Removed min-h-screen so it settles naturally */}
+      <div className="flex flex-col items-center text-center">
         <h1 className="text-5xl font-bold tracking-tight text-foreground md:text-7xl">
           <span className="text-primary">Senyas.IO</span><br/>
           Where silence finds a voice.
         </h1>
 
         <p className="mt-8 text-lg text-neutral-600 dark:text-neutral-400 max-w-xl leading-relaxed">
-          A camera-based system interpreting sign language to empower deaf and mute 
+          A camera-based system interpreting sign language to empower Deaf 
           
           <FlowerDrop>
             <span className="font-semibold text-foreground underline decoration-primary decoration-2 underline-offset-4 ml-1">

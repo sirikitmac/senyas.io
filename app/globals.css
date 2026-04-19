@@ -6,47 +6,44 @@
 
 /* --- 1. CSS VARIABLES --- */
 :root {
-  /* Soft, Airy Backgrounds */
+  /* Light Mode */
   --background: #fdfcf8;
   --foreground: #1e293b;
-  --primary: #ffb7c5;    /* Pastel Pink */
-  --glass: rgba(255, 255, 255, 0.4); /* For light mode glass */
+  --primary: #ffb7c5; /* Pink */
   --border: rgba(0, 0, 0, 0.1);
   --radius: 1.25rem;
 }
 
 .dark {
-  /* Replace the navy with a rich, deep Obsidian */
+  /* Dark Mode */
   --background: #0a0a0a; 
   --foreground: #fafafa;
   --primary: #ffb7c5;    
-  --glass: rgba(255, 255, 255, 0.03); /* Lighter transparency for the buttons */
   --border: rgba(255, 255, 255, 0.1);
-  --ring: #ffb7c5;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
-  --color-glass: var(--glass);
   --color-border: var(--border);
 }
 
 @layer base {
-  body { @apply bg-background text-foreground antialiased transition-colors duration-500; }
+  body { 
+    @apply bg-background text-foreground antialiased transition-colors duration-500; 
+  }
 }
 
-/* --- 2. GLASS EFFECT UTILITY --- */
+/* --- 2. GLASS EFFECT --- */
 .glass {
-  background: var(--glass);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* --- 3. GENTLE BREATHING ANIMATION --- */
+/* --- 3. PINK BREATHING ANIMATION --- */
+/* Changed from green to Pink (#ffb7c5 -> 255, 183, 197) */
 @keyframes btnBreathe {
   0%, 100% { box-shadow: 0 0 10px rgba(255, 183, 197, 0.3); }
   50% { box-shadow: 0 0 20px rgba(255, 183, 197, 0.6); }

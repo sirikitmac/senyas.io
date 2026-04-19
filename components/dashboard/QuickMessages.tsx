@@ -1,8 +1,5 @@
 'use client';
 
-// REMOVED the import { Button } from "@/components/ui/button";
-// We are using a native <button> to bypass shadcn's theme variables.
-
 const MESSAGES = [
   { label: "Help Needed", text: "I need help, please assist me." },
   { label: "Emergency", text: "Emergency! Please call for help." },
@@ -27,12 +24,8 @@ export default function QuickMessages() {
         <button
           key={msg.label}
           onClick={() => speak(msg.text)}
-          // Using a native button element here ensures NO theme variables interfere with your text color.
-          className="h-24 rounded-3xl transition-all border-2 shadow-sm font-bold text-lg 
-            /* Light Mode: White card, forced black text, rose border */
-            bg-white border-rose-200 text-black hover:bg-rose-50
-            /* Dark Mode: Dark glass, forced white text, subtle border */
-            dark:bg-white/5 dark:border-white/10 dark:text-white dark:hover:bg-white/10"
+          className="h-24 rounded-3xl transition-all border border-green-500/20 shadow-sm font-bold text-lg 
+            bg-neutral-900 text-white hover:bg-green-500/10 hover:border-green-500/50 hover:shadow-[0_0_15px_rgba(34,197,94,0.3)]"
         >
           {msg.label}
         </button>

@@ -1,52 +1,43 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link"; // Added Link
-import { ThemeToggle } from "./ThemeToggle";
+import Link from "next/link";
 import { FlowerDrop } from "./FlowerDrop";
 
 export default function HeroSectionOne() {
   return (
-    <div className="flex flex-col items-center justify-center px-6 w-full max-w-4xl pt-32 pb-16">
+    <div className="flex flex-col items-center justify-center px-6 w-full max-w-4xl mx-auto pt-32 pb-16 text-center">
       
-      {/* Navbar - Fixed and blurred */}
-      <nav className="fixed top-0 flex w-full max-w-7xl items-center justify-between py-6 px-6 z-40 bg-transparent backdrop-blur-md">
-        <h1 className="text-xl font-bold tracking-tight text-foreground">Senyas.IO</h1>
-        <ThemeToggle />
-      </nav>
-
-      {/* Hero Content */}
-      <div className="flex flex-col items-center text-center">
+      {/* The animate-float class makes this content float gently */}
+      <div className="flex flex-col items-center text-center animate-float">
         <h1 className="text-5xl font-bold tracking-tight text-foreground md:text-7xl">
-          <span className="text-primary">Senyas.IO</span><br/>
+          <span className="text-[#ffb3c6]">Senyas.IO</span><br/>
           Where silence finds a voice.
         </h1>
 
         <p className="mt-8 text-lg text-neutral-500 dark:text-neutral-400 max-w-xl leading-relaxed">
           A camera-based system interpreting sign language to empower Deaf 
-          
           <FlowerDrop>
-            <span className="font-semibold text-foreground underline decoration-primary decoration-2 underline-offset-4 ml-1">
+            <span className="font-semibold text-foreground underline decoration-[#ffb3c6] decoration-2 underline-offset-4 ml-1">
               Women
             </span>
           </FlowerDrop>.
         </p>
 
-        {/* Action Area */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-12 flex flex-col items-center gap-4 w-full"
         >
-          {/* Changed button to a Link for clean navigation */}
+          {/* Main Call to Action */}
           <Link href="/login" className="w-full max-w-xs">
-            <button className="w-full rounded-full bg-primary px-8 py-4 text-lg font-bold text-black animate-btn-breathe transition-transform hover:scale-[1.02] active:scale-[0.98]">
+            <button className="w-full rounded-full bg-[#ffb3c6] px-8 py-4 text-lg font-bold text-black animate-btn-breathe transition-transform hover:scale-[1.02] active:scale-[0.98]">
               Try Senyas.IO
             </button>
           </Link>
           
-          {/* Glassmorphic Secondary Buttons */}
+          {/* Secondary Buttons */}
           <div className="flex gap-4 mt-2">
             <button className="glass px-8 py-3 rounded-full text-foreground font-medium text-sm transition-all duration-300 hover:scale-110 border border-transparent hover:border-foreground/10">
               Explore

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Navbar } from "@/components/Navbar"; 
 import HeroSectionOne from "@/components/hero-section-demo-1";
 import { DashboardStats } from "@/components/DashboardStats";
 import HoverFooter from "@/components/ui/HoverFooter";
@@ -19,18 +20,20 @@ export default function LandingPage() {
   return (
     <main className="relative w-full min-h-screen flex flex-col items-center bg-background text-foreground transition-colors duration-500 overflow-hidden pb-10">
       
-      {/* 1. Hero Content */}
-      <HeroSectionOne />
+      {/* 1. Global Navbar */}
+      <Navbar />
 
-      {/* 2. Logo Placeholder + Dashboard Stats */}
+      {/* 2. Hero Content - Added pt-20 to prevent overlap with fixed Navbar */}
+      <div className="pt-20 w-full">
+        <HeroSectionOne />
+      </div>
+
+      {/* 3. Dashboard Stats */}
       <section className="w-full relative z-10 flex flex-col items-center">
-        <div className="h-16 w-16 mb-8 flex items-center justify-center">
-           {/* Space reserved for logo */}
-        </div>
         <DashboardStats />
       </section>
 
-      {/* 3. Footer */}
+      {/* 4. Footer */}
       <HoverFooter />
       
     </main>

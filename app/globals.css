@@ -12,6 +12,7 @@
   --radius: 1.5rem;
 }
 
+/* --- 2. THEME CONFIG --- */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -20,38 +21,45 @@
   --radius-lg: var(--radius);
 }
 
+/* --- 3. BASE STYLES --- */
 @layer base {
   body { 
     @apply bg-background text-foreground antialiased transition-colors duration-500; 
   }
 }
 
-/* --- 2. GLASS EFFECT --- */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); 
-  border: 1px solid var(--border);
+/* --- 4. CUSTOM COMPONENTS --- */
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-[12px] border border-white/10;
+  }
 }
 
-/* --- 3. ANIMATIONS & UTILITIES --- */
+/* --- 5. ANIMATIONS & UTILITIES --- */
 @layer utilities {
-  /* Text Glow for Logo */
+  /* Text Glow */
   .text-glow {
     text-shadow: 0 0 20px rgba(255, 179, 198, 0.6), 0 0 40px rgba(255, 179, 198, 0.3);
   }
 
-  /* Breathing Animation for TEXT (Logo) */
+  /* Keyframe Animations */
   @keyframes textBreathe {
     0%, 100% { text-shadow: 0 0 15px rgba(255, 179, 198, 0.4); opacity: 1; }
     50% { text-shadow: 0 0 30px rgba(255, 179, 198, 0.8); opacity: 0.9; }
   }
-  .animate-text-breathe { animation: textBreathe 3s ease-in-out infinite; }
-
-  /* Breathing Animation for BUTTONS (Guest Pill) */
+  
   @keyframes btnBreathe {
     0%, 100% { box-shadow: 0 0 10px rgba(255, 179, 198, 0.3); }
     50% { box-shadow: 0 0 25px rgba(255, 179, 198, 0.6); }
   }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Utility Classes */
+  .animate-text-breathe { animation: textBreathe 3s ease-in-out infinite; }
   .animate-btn-breathe { animation: btnBreathe 3s ease-in-out infinite; }
+  .animate-float { animation: float 4s ease-in-out infinite; }
 }

@@ -5,9 +5,9 @@
 
 /* --- 1. CSS VARIABLES --- */
 :root {
-  --background: #0f0f11; /* Aligned with your dark-themed footer */
+  --background: #0f0f11;
   --foreground: #fafafa;
-  --primary: #E7C5C5;    /* Your specific Pink */
+  --primary: #ffb3c6; /* Updated to your palette */
   --border: rgba(255, 255, 255, 0.1);
   --radius: 1.5rem;
 }
@@ -30,15 +30,15 @@
 .glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  -webkit-backdrop-filter: blur(12px); 
   border: 1px solid var(--border);
 }
 
 /* --- 3. PINK BREATHING ANIMATION --- */
-/* Uses your #E7C5C5 hex code for a perfect match */
+/* Updated to use #ffb3c6 (255, 179, 198) */
 @keyframes btnBreathe {
-  0%, 100% { box-shadow: 0 0 10px rgba(231, 197, 197, 0.3); }
-  50% { box-shadow: 0 0 25px rgba(231, 197, 197, 0.6); }
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 179, 198, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(255, 179, 198, 0.6); }
 }
 
 .animate-btn-breathe {

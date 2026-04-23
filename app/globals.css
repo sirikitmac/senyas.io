@@ -7,7 +7,7 @@
 :root {
   --background: #0f0f11;
   --foreground: #fafafa;
-  --primary: #ffb3c6; /* Updated to your palette */
+  --primary: #ffb3c6; 
   --border: rgba(255, 255, 255, 0.1);
   --radius: 1.5rem;
 }
@@ -34,13 +34,24 @@
   border: 1px solid var(--border);
 }
 
-/* --- 3. PINK BREATHING ANIMATION --- */
-/* Updated to use #ffb3c6 (255, 179, 198) */
-@keyframes btnBreathe {
-  0%, 100% { box-shadow: 0 0 10px rgba(255, 179, 198, 0.3); }
-  50% { box-shadow: 0 0 25px rgba(255, 179, 198, 0.6); }
-}
+/* --- 3. ANIMATIONS & UTILITIES --- */
+@layer utilities {
+  /* Text Glow for Logo */
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 179, 198, 0.6), 0 0 40px rgba(255, 179, 198, 0.3);
+  }
 
-.animate-btn-breathe {
-  animation: btnBreathe 3s ease-in-out infinite;
+  /* Breathing Animation for TEXT (Logo) */
+  @keyframes textBreathe {
+    0%, 100% { text-shadow: 0 0 15px rgba(255, 179, 198, 0.4); opacity: 1; }
+    50% { text-shadow: 0 0 30px rgba(255, 179, 198, 0.8); opacity: 0.9; }
+  }
+  .animate-text-breathe { animation: textBreathe 3s ease-in-out infinite; }
+
+  /* Breathing Animation for BUTTONS (Guest Pill) */
+  @keyframes btnBreathe {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 179, 198, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(255, 179, 198, 0.6); }
+  }
+  .animate-btn-breathe { animation: btnBreathe 3s ease-in-out infinite; }
 }

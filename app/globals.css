@@ -1,25 +1,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
 /* --- 1. CSS VARIABLES --- */
 :root {
-  /* Light Mode */
-  --background: #fdfcf8;
-  --foreground: #1e293b;
-  --primary: #ffb7c5; /* Pink */
-  --border: rgba(0, 0, 0, 0.1);
-  --radius: 1.25rem;
-}
-
-.dark {
-  /* Dark Mode */
-  --background: #0a0a0a; 
+  --background: #0f0f11; /* Aligned with your dark-themed footer */
   --foreground: #fafafa;
-  --primary: #ffb7c5;    
+  --primary: #E7C5C5;    /* Your specific Pink */
   --border: rgba(255, 255, 255, 0.1);
+  --radius: 1.5rem;
 }
 
 @theme inline {
@@ -27,6 +17,7 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-border: var(--border);
+  --radius-lg: var(--radius);
 }
 
 @layer base {
@@ -39,14 +30,15 @@
 .glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
   border: 1px solid var(--border);
 }
 
 /* --- 3. PINK BREATHING ANIMATION --- */
-/* Changed from green to Pink (#ffb7c5 -> 255, 183, 197) */
+/* Uses your #E7C5C5 hex code for a perfect match */
 @keyframes btnBreathe {
-  0%, 100% { box-shadow: 0 0 10px rgba(255, 183, 197, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(255, 183, 197, 0.6); }
+  0%, 100% { box-shadow: 0 0 10px rgba(231, 197, 197, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(231, 197, 197, 0.6); }
 }
 
 .animate-btn-breathe {

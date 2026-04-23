@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 import { FlowerDrop } from "./FlowerDrop";
 
-export default function HeroSectionOne() {
+// Added the prop here
+export default function HeroSectionOne({ onTrySenyas }: { onTrySenyas: () => void }) {
   return (
     <div className="flex flex-col items-center justify-center px-6 w-full max-w-4xl pt-32 pb-16">
       
@@ -39,12 +39,13 @@ export default function HeroSectionOne() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-12 flex flex-col items-center gap-4 w-full"
         >
-          {/* Breathing CTA - Pink Glow */}
-          <Link href="/lab" className="w-full max-w-xs">
-            <button className="w-full rounded-full bg-primary px-8 py-4 text-lg font-bold text-black animate-btn-breathe transition-transform hover:scale-[1.02] active:scale-[0.98]">
-              Try Senyas.IO
-            </button>
-          </Link>
+          {/* Changed Link to a simple button with onClick */}
+          <button 
+            onClick={onTrySenyas}
+            className="w-full max-w-xs rounded-full bg-primary px-8 py-4 text-lg font-bold text-black animate-btn-breathe transition-transform hover:scale-[1.02] active:scale-[0.98]"
+          >
+            Try Senyas.IO
+          </button>
           
           {/* Glassmorphic Secondary Buttons */}
           <div className="flex gap-4 mt-2">

@@ -1,65 +1,44 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
-/* --- 1. CSS VARIABLES --- */
-:root {
-  --background: #0f0f11;
-  --foreground: #fafafa;
-  --primary: #ffb3c6; 
-  --border: rgba(255, 255, 255, 0.1);
-  --radius: 1.5rem;
+@theme {
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(222.2 84% 4.9%);
 }
 
-/* --- 2. THEME CONFIG --- */
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-border: var(--border);
-  --radius-lg: var(--radius);
-}
-
-/* --- 3. BASE STYLES --- */
 @layer base {
-  body { 
-    @apply bg-background text-foreground antialiased transition-colors duration-500; 
+  .dark {
+    --color-background: hsl(240 10% 3.9%);
+    --color-foreground: hsl(210 40% 98%);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    @apply antialiased transition-colors duration-300;
   }
 }
 
-/* --- 4. CUSTOM COMPONENTS --- */
 @layer components {
   .glass {
     @apply bg-white/5 backdrop-blur-[12px] border border-white/10;
   }
 }
 
-/* --- 5. ANIMATIONS & UTILITIES --- */
 @layer utilities {
-  /* Text Glow */
   .text-glow {
     text-shadow: 0 0 20px rgba(255, 179, 198, 0.6), 0 0 40px rgba(255, 179, 198, 0.3);
   }
 
-  /* Keyframe Animations */
-  @keyframes textBreathe {
-    0%, 100% { text-shadow: 0 0 15px rgba(255, 179, 198, 0.4); opacity: 1; }
-    50% { text-shadow: 0 0 30px rgba(255, 179, 198, 0.8); opacity: 0.9; }
-  }
-  
-  @keyframes btnBreathe {
-    0%, 100% { box-shadow: 0 0 10px rgba(255, 179, 198, 0.3); }
-    50% { box-shadow: 0 0 25px rgba(255, 179, 198, 0.6); }
-  }
+  .animate-float { animation: float 4s ease-in-out infinite; }
+  .animate-btn-breathe { animation: btnBreathe 3s ease-in-out infinite; }
 
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
   }
 
-  /* Utility Classes */
-  .animate-text-breathe { animation: textBreathe 3s ease-in-out infinite; }
-  .animate-btn-breathe { animation: btnBreathe 3s ease-in-out infinite; }
-  .animate-float { animation: float 4s ease-in-out infinite; }
+  @keyframes btnBreathe {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 179, 198, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(255, 179, 198, 0.6); }
+  }
 }
